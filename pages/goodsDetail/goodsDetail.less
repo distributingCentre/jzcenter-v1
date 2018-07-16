@@ -1,0 +1,365 @@
+@import '../../public/css/iconfont.css';
+@main-color: #c7bfbf;
+@hightlight-color: #fa373d;
+@border-color: #f4f4f4;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    padding-top: 98rpx;
+    padding-bottom: 98rpx;
+    .header {
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 98rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        border-bottom: 1rpx solid @border-color;
+        .nav {
+            padding-left: 50rpx;
+            padding-right: 50rpx;
+            color: @main-color;
+            font-size: 30rpx;
+            line-height: 98rpx;
+        }
+        .nav.active {
+            color: @hightlight-color;
+        }
+    }
+
+    .goods-box {
+        .goods {
+            width: 100%;
+            background-color: #ffffff;
+            .banner {
+                width: 100%;
+                height: 657rpx;
+                border-bottom: 1rpx solid @border-color;
+                .swiper {
+                    width: 100%;
+                    height: 100%;
+                    .swiper-item {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        image {
+                            max-width: 100%;
+                            max-height: 100%;
+                        }
+                    }
+                }
+            }
+
+            .desc {
+                width: 100%;
+                padding-top: 32rpx;
+                padding-bottom: 32rpx;
+                padding-right: 40rpx;
+                padding-left: 40rpx;
+                .goods-name {
+                    width: 100%;
+                    line-height: 45rpx;
+                    font-size: 30rpx;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    font-weight: 900;
+                }
+                .goods-price {
+                    width: 100%;
+                    color: @hightlight-color;
+                    font-size: 30rpx;
+                    padding-top: 20rpx;
+                }
+            }
+
+            .buy {
+                width: 100%;
+                height: 100rpx;
+                display: flex;
+                align-items: center;
+                color: @main-color;
+                font-size: 26rpx;
+                padding-left: 40rpx;
+                padding-right: 40rpx;
+                border-top: 1rpx solid @border-color;
+
+                .handle {
+                    color: #000000;
+                }
+                .iconfont {
+                    font-size: 20rpx;
+                }
+                .num {
+                    display: block;
+                    padding-right: 40rpx;
+                }
+                .count {
+                    width: 96rpx;
+                    height: 48rpx;
+                    display: block;
+                    border-radius: 24rpx;
+                    background-color: @border-color;
+                    line-height: 48rpx;
+                    text-align: center;
+                    margin: 0 20rpx;
+                }
+            }
+        }
+
+        .comment {
+            width: 100%;
+            background-color: #ffffff;
+            margin-top: 20rpx;
+            .comment-header {
+                height: 98rpx;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-right: 40rpx;
+                padding-left: 40rpx;
+                border: 1rpx solid @border-color;
+                .title {
+                    font-size: 30rpx;
+                    font-weight: 900;
+                }
+                .comment-num {
+                    font-size: 26rpx;
+                    color: @main-color;
+                }
+            }
+            .comment-content {
+                width: 100%;
+                .comment-item {
+                    padding-bottom: 20rpx;
+                    padding-left: 40rpx;
+                    padding-right: 40rpx;
+                    width: 100%;
+                    border-bottom: 1rpx solid @border-color;
+                    .comment-item-top {
+                        padding-top: 30rpx;
+                        padding-bottom: 30rpx;
+                        width: 100%;
+                        font-size: 26rpx;
+                        color: @main-color;
+                        display: flex;
+                        justify-content: space-between;
+                        .info {
+                            display: flex;
+                            .username {
+                                padding-right: 30rpx;
+                            }
+                            .iconfont {
+                                font-size: 24rpx;
+                                color: @hightlight-color;
+                            }
+                        }
+                    }
+
+                    .comment-detail {
+                        width: 100%;
+                        font-size: 26rpx;
+                        line-height: 40rpx;
+                    }
+
+                    .images {
+                        width: 100%;
+                        overflow-y: hidden;
+                        overflow-x: auto;
+                        .box {
+                            white-space: nowrap;
+                        }
+                        .img-box {
+                            width: 142rpx;
+                            height: 142rpx;
+                            border: 5rpx solid #ffffff;
+                            display: inline-block;
+                            image {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .more-comment {
+                width: 100%;
+                font-size: 26rpx;
+                color: @main-color;
+                padding-top: 15rpx;
+                padding-bottom: 15rpx;
+                display: flex;
+                justify-content: center;
+                border-bottom: 1rpx solid @border-color;
+                .more-btn {
+                    display: block;
+                    width: 200rpx;
+                    height: 68rpx;
+                    text-align: center;
+                    line-height: 68rpx;
+                    border: 1rpx solid @border-color;
+                    border-radius: 34rpx;
+                }
+            }
+        }
+        .handles {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 98rpx;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            box-shadow: -5rpx 0 10rpx @main-color;
+            .b {
+                flex: 1;
+                height: 100%;
+                line-height: 98rpx;
+                text-align: center;
+                color: white;
+                font-size: 32rpx;
+                font-weight: 900;
+            }
+            .b.r {
+                background-color: #fa373d
+            }
+            .b.o {
+                background-color: #fc8f37;
+            }
+            .s {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                font-size: 22rpx;
+                color: @main-color;
+                .s-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+
+    .comment-box {
+    	width: 100%;
+    	.comment {
+            width: 100%;
+            background-color: #ffffff;
+            margin-top: 20rpx;
+            .comment-header {
+                height: 98rpx;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-right: 40rpx;
+                padding-left: 40rpx;
+                border: 1rpx solid @border-color;
+                .title {
+                    font-size: 30rpx;
+                    font-weight: 900;
+                }
+                .comment-num {
+                    font-size: 26rpx;
+                    color: @main-color;
+                }
+            }
+            .comment-content {
+                width: 100%;
+                .comment-item {
+                    padding-bottom: 20rpx;
+                    padding-left: 40rpx;
+                    padding-right: 40rpx;
+                    width: 100%;
+                    border-bottom: 1rpx solid @border-color;
+                    .comment-item-top {
+                        padding-top: 30rpx;
+                        padding-bottom: 30rpx;
+                        width: 100%;
+                        font-size: 26rpx;
+                        color: @main-color;
+                        display: flex;
+                        justify-content: space-between;
+                        .info {
+                            display: flex;
+                            .username {
+                                padding-right: 30rpx;
+                            }
+                            .iconfont {
+                                font-size: 24rpx;
+                                color: @hightlight-color;
+                            }
+                        }
+                    }
+
+                    .comment-detail {
+                        width: 100%;
+                        font-size: 26rpx;
+                        line-height: 40rpx;
+                    }
+
+                    .images {
+                        width: 100%;
+                        overflow-y: hidden;
+                        overflow-x: auto;
+                        .box {
+                            white-space: nowrap;
+                        }
+                        .img-box {
+                            width: 142rpx;
+                            height: 142rpx;
+                            border: 5rpx solid #ffffff;
+                            display: inline-block;
+                            image {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .more-comment {
+                width: 100%;
+                font-size: 26rpx;
+                color: @main-color;
+                padding-top: 15rpx;
+                padding-bottom: 15rpx;
+                display: flex;
+                justify-content: center;
+                border-bottom: 1rpx solid @border-color;
+                .more-btn {
+                    display: block;
+                    width: 200rpx;
+                    height: 68rpx;
+                    text-align: center;
+                    line-height: 68rpx;
+                    border: 1rpx solid @border-color;
+                    border-radius: 34rpx;
+                }
+            }
+        }
+    }
+}

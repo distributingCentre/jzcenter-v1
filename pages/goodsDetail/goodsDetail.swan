@@ -1,0 +1,148 @@
+<view class="container goods">
+    <view class="header">
+        <view data-nav="goods" bind:tap="toggleNav" class="nav {{currentNav=='goods'?'active':''}}">
+            <text>商品</text>
+        </view>
+        <view data-nav="comment" bind:tap="toggleNav" class="nav {{currentNav=='comment'?'active':''}}">
+            <text>评价</text>
+        </view>
+        <view data-nav="details" bind:tap="toggleNav" class="nav {{currentNav=='details'?'active':''}}">
+            <text>详情</text>
+        </view>
+    </view>
+    <view style="display: {{currentNav=='goods'?'block':'none'}}" class="goods-box">  	 
+	    <view class="goods">
+	        <view class="banner">
+	            <swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="500">
+	                <swiper-item s-for="img in goodsData.goods_info.original_img"  class="swiper-item">
+	                    <image src="{{img}}" class="slide-image" width="355" height="150" />
+	                </swiper-item>
+	            </swiper>
+	        </view>
+	        <view class="desc">
+	            <view class="goods-name">
+	                <text>{{goodsData.goods_info.goods_name}}</text>
+	            </view>
+	            <view class="goods-price">
+	                <text>&#65509;{{goodsData.goods_info.price}}</text>
+	            </view>
+	        </view>
+	        <view class="buy">
+	            <text class="num">数量</text>
+	            <text bind:tap="reduceNum" class="handle iconfont icon-jian"></text>
+	            <text class="handle count">{{goodsNum}}</text>
+	            <text bind:tap="plusNum" class="handle iconfont icon-jia"></text>
+	        </view>
+	    </view>
+	    <view class="comment">
+	        <view class="comment-header">
+	            <text class="title">评价</text>
+	            <view bind:tap="viewAllComment" class="comment-num">
+	                <text>共{{goodsData.goods_evaluate.nums}}条</text>
+	                <text class="iconfont icon-you"></text>
+	            </view>
+	        </view>
+	        <view class="comment-content">
+	            <view class="comment-item">
+	                <view class="comment-item-top">
+	                	<view class="info">
+	                		<view class="username">
+	                        <text>{{goodsData.goods_evaluate.nickname}}</text>
+	                    </view>
+	                    <view class="score">
+	                        <text s-if="{{1 <= goodsData.goods_evaluate.score }}" class="iconfont icon-demo05"></text>
+	                        <text s-if="{{2 <= goodsData.goods_evaluate.score }}" class="iconfont icon-demo05"></text>
+	                        <text s-if="{{3 <= goodsData.goods_evaluate.score }}" class="iconfont icon-demo05"></text>
+	                        <text s-if="{{4 <= goodsData.goods_evaluate.score }}" class="iconfont icon-demo05"></text>
+	                        <text s-if="{{5 <= goodsData.goods_evaluate.score }}" class="iconfont icon-demo05"></text>
+	                    </view>
+	                	</view>
+	                    
+	                    <view class="time">
+	                        <text>{{goodsData.goods_evaluate.create_time}}</text>
+	                    </view>
+	                </view>
+	                <view class="comment-detail">
+	                    <text>{{goodsData.goods_evaluate.content}}</text>
+	                </view>
+	                <view class="images">
+	                	<view class="box">
+		                    <view s-for="item in goodsData.goods_evaluate.img" class="img-box">
+		                    	<image src="{{item}}"></image>
+		                    </view>
+	                    </view>
+	                </view>
+	            </view>
+	        </view>
+	        <view class="more-comment">
+	        	<text bind:tap="viewAllComment" class="more-btn">查看全部评价</text>
+	        </view>
+	    </view>
+
+	    <view class="handles">
+			<view class="s">
+				<view bind:tap="linkToShop" class="s-item">
+					<text class="iconfont icon-gouwuche"></text>
+					<text>进店</text>
+				</view>
+				<view bind:tap="linkToCart" class="s-item">
+					<text class="iconfont icon-gouwuche"></text>
+					<text>购物车</text>
+				</view>
+			</view>
+			
+			<view bind:tap="addCart" class="b o">
+				<text>加入购物车</text>
+			</view>
+			<view bind:tap="goBuy" class="b r">
+				<text>立即购买</text>
+			</view>
+		</view>
+	</view>
+
+	<!-- 评论部分 -->
+	<view style="display: {{currentNav=='comment'?'block':'none'}}" class="comment-box">
+		<view class="comment">
+	        <view class="comment-header">
+	            <text class="title">评价</text>
+	            <view class="comment-num">
+	                <text>共{{commentData.nums}}条</text>
+	                <text class="iconfont icon-you"></text>
+	            </view>
+	        </view>
+	        <view class="comment-content">
+	            <view s-for="item in commentData.goods_evaluate" class="comment-item">
+	                <view class="comment-item-top">
+	                	<view class="info">
+	                		<view class="username">
+	                        <text>{{item.nickname}}</text>
+	                    </view>
+	                    <view class="score">
+	                        <text s-if="{{1 <= item.score}}" class="iconfont icon-demo05"></text>
+	                        <text s-if="{{2 <= item.score}}" class="iconfont icon-demo05"></text>
+	                        <text s-if="{{3 <= item.score}}" class="iconfont icon-demo05"></text>
+	                        <text s-if="{{4 <= item.score}}" class="iconfont icon-demo05"></text>
+	                        <text s-if="{{5 <= item.score}}" class="iconfont icon-demo05"></text>
+	                    </view>
+	                	</view>
+	                    
+	                    <view class="time">
+	                        <text>{{item.create_time}}</text>
+	                    </view>
+	                </view>
+	                <view class="comment-detail">
+	                    <text>{{item.content}}</text>
+	                </view>
+	                <view class="images">
+	                	<view class="box">
+		                    <view s-for="img in item.img" class="img-box">
+		                    	<image src="{{img}}"></image>
+		                    </view>
+	                    </view>
+	                </view>
+	            </view>
+	        </view>
+	    </view>
+	</view>
+</view>
+

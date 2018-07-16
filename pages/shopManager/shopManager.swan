@@ -1,0 +1,81 @@
+<view class="container">
+	<view class="user-info">
+		<view class="avatar">
+			<image src="{{shopData.shop.shop_img}}"></image>
+		</view>
+		<view class="username">
+			<text>{{shopData.shop.shop_name}}</text>
+		</view>
+	</view>
+
+	<view class="income">
+		<view class="title">
+			<text>收入总览</text>
+		</view>
+		<view class="total">
+			<view class="total-item">
+				<text class="t">&#65509;{{shopData.shop_list.all_money}}</text>
+				<text class="t">店铺总收入</text>
+			</view>
+			<view class="total-item">
+				<text class="t">&#65509;{{shopData.shop_list.money}}</text>
+				<text class="t">可提现收入</text>
+			</view>
+		</view>
+
+		<view class="today">
+			<view class="today-item">
+				<text class="t">&#65509;{{shopData.shop_list.today_money}}</text>
+				<text class="t">今日收入</text>
+			</view>
+			<view class="today-item">
+				<text class="t">&#65509;{{shopData.shop_list.month_money}}</text>
+				<text class="t">本月收入</text>
+			</view>
+			<view class="today-item">
+				<text class="t">&#65509;{{shopData.shop_list.frozen_money}}</text>
+				<text class="t">冻结收入</text>
+			</view>
+		</view>
+	</view>
+
+	<view class="order">
+		<view class="title">
+			<text>订单总览</text>
+		</view>
+		<view class="order-detail">
+			<view class="order-item">
+				<text class="t">{{shopData.order_list.total_order}}</text>
+				<text class="t">总订单</text>
+			</view>
+			<view class="order-item">
+				<text class="t">{{shopData.order_list.today_order}}</text>
+				<text class="t">今日订单</text>
+			</view>
+			<view class="order-item">
+				<text class="t">{{shopData.order_list.consignment_order}}</text>
+				<text class="t">代发货订单</text>
+			</view>
+		</view>
+	</view>
+
+	<view class="comment">
+		<view class="title">
+			<text>订单总览</text>
+		</view>
+		<view class="comment-detail">
+			<view class="comment-item">
+				<text class="t">{{shopData.evaluate_list.order_evaluate}}</text>
+				<text class="t">累计评价</text>
+			</view>
+			<view class="comment-item">
+				<text class="t">{{shopData.evaluate_list.order_praise}}</text>
+				<text class="t">累计好评</text>
+			</view>
+			<view class="comment-item">
+				<text class="t">{{shopData.evaluate_list.order_praise_rate}}%</text>
+				<text class="t">好评率</text>
+			</view>
+		</view>
+	</view>
+</view>
